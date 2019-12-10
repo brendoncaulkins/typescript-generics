@@ -14,8 +14,12 @@ export class InstructorService {
 
   constructor(private http: HttpClient) {}
 
-  fetch(): Observable<Instructor[]> {
+  fetchAll(): Observable<Instructor[]> {
     return this.http.get<Instructor[]>(this.url)
+  }
+
+  getById(id: number): Observable<Instructor> {
+    return this.http.get<Instructor>(`${this.url}/${id}`)
   }
 
   create(instructor: Instructor): Observable<Instructor> {

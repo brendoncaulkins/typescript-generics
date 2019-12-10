@@ -14,8 +14,12 @@ export class StudentService {
 
   constructor(private http: HttpClient) {}
 
-  fetch(): Observable<Student[]> {
+  fetchAll(): Observable<Student[]> {
     return this.http.get<Student[]>(this.url)
+  }
+
+  getById(id: number): Observable<Student> {
+    return this.http.get<Student>(`${this.url}/${id}`)
   }
 
   create(student: Student): Observable<Student> {
