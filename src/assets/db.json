@@ -1,0 +1,38 @@
+{
+  "students": [{
+    "id": 1,
+    "firstName": "Jeff",
+    "lastName": "Winger",
+    "phoneNumber": "234-567-8901",
+    "email": "jeff.winger@greendale.edu",
+    "majors": ["Psychology", "Crimonology"],
+    "minors": ["Spanish"]
+  }, {
+    "id": 2,
+    "firstName": "Annie",
+    "lastName": "Edison",
+    "phoneNumber": "445-765-0099",
+    "email": "annie.edison@greendale.edu",
+    "majors": ["Education"],
+    "minors": ["Spanish"]
+  }],
+  "instructors": [{
+      "id": 1,
+      "firstName": "Ben",
+      "lastName": "Chang",
+      "phoneNumber": "334-567-9011",
+      "email": "ben.chang@greendale.edu",
+      "department": "Liberal Arts",
+      "office": "200 Lawson Bldg"
+    },
+    {
+      "id": 2,
+      "firstName": "Ian",
+      "lastName": "Duncan",
+      "phoneNumber": "232-113-1101",
+      "email": "ian.duncan@greendale.edu",
+      "department": "Science",
+      "office": "412 Tesla Bldg"
+    }
+  ]
+}
