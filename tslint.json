@@ -72,6 +72,15 @@
       true,
       "single"
     ],
+    "radix": true,
+    "semicolon": [
+      false,
+      "always"
+    ],
+    "triple-equals": [
+      true,
+      "allow-null-check"
+    ],
     "trailing-comma": false,
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
