@@ -88,6 +88,33 @@ Or, use the [Angular Console VSCode extension](https://marketplace.visualstudio.
    }
 ```
 
+**BONUS:** Build an abstract mock service that can be used to easily make mock services that can be used safely in test suites without needing to import the `HttpClientTestingModule`
+
+```javascript
+   @Injectable()
+   export abstract class BaseMockCrudService<T extends BaseItem> {
+
+     abstract mockData: T[]
+
+     constructor() {}
+
+     fetchAll(): Observable<T[]> {
+       return of(this.mockData)
+     }
+
+     create(item: T): Observable<T> {
+       // CODE TO ADD item T this.mockData
+       return of(item)
+     }
+     ...
+   }
+```
+
+```javascript
+@Injectable()
+export class MockStudentService extends BaseMockCrudService<Student> {}
+```
+
 ## 2. Build an Abstract List Component
 
 1. Locate and examine the two list components, `StudentListComponent` and `InstructorListComponent`
