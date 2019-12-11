@@ -1,2 +1,4 @@
+<h1 mat-header>Student Form</h1>
 <app-student-form [student]="editStudent$ | async"></app-student-form>
+<h1 mat-header>Student List</h1>
 <app-student-list (editStudent)="editStudent$.next($event)"></app-student-list>
