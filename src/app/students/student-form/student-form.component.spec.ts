@@ -1,25 +1,36 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
+import { ComponentFixture, TestBed, async } from '@angular/core/testing'
+import { ReactiveFormsModule } from '@angular/forms'
+import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 
-import { StudentFormComponent } from './student-form.component';
+import { MaterialModule } from '../../material.module'
+import { StudentService } from '../../services/student/student.service'
+import { StudentFormComponent } from './student-form.component'
 
 describe('StudentFormComponent', () => {
-  let component: StudentFormComponent;
-  let fixture: ComponentFixture<StudentFormComponent>;
+  let component: StudentFormComponent
+  let fixture: ComponentFixture<StudentFormComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StudentFormComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [StudentFormComponent],
+      imports: [
+        MaterialModule,
+        NoopAnimationsModule,
+        ReactiveFormsModule,
+        HttpClientTestingModule,
+      ],
+      providers: [StudentService],
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StudentFormComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(StudentFormComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

@@ -1,25 +1,42 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
+import { ComponentFixture, TestBed, async } from '@angular/core/testing'
+import { ReactiveFormsModule } from '@angular/forms'
+import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 
-import { InstructorsComponent } from './instructors.component';
+import { MaterialModule } from '../material.module'
+import { InstructorService } from '../services/instructor/instructor.service'
+import { InstructorFormComponent } from './instructor-form/instructor-form.component'
+import { InstructorListComponent } from './instructor-list/instructor-list.component'
+import { InstructorsComponent } from './instructors.component'
 
 describe('InstructorsComponent', () => {
-  let component: InstructorsComponent;
-  let fixture: ComponentFixture<InstructorsComponent>;
+  let component: InstructorsComponent
+  let fixture: ComponentFixture<InstructorsComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InstructorsComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [
+        InstructorsComponent,
+        InstructorFormComponent,
+        InstructorListComponent,
+      ],
+      imports: [
+        MaterialModule,
+        NoopAnimationsModule,
+        ReactiveFormsModule,
+        HttpClientTestingModule,
+      ],
+      providers: [InstructorService],
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InstructorsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(InstructorsComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})
