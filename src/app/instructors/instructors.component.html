@@ -1,1 +1,4 @@
-<p>instructors works!</p>
+<h1 mat-header>Instructor Form</h1>
+<app-instructor-form [instructor]="editInstructor$ | async"></app-instructor-form>
+<h1 mat-header>Instructor List</h1>
+<app-instructor-list (editInstructor)="editInstructor$.next($event)"></app-instructor-list>

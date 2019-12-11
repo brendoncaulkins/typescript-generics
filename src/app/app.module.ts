@@ -12,7 +12,9 @@ import { MaterialModule } from './material.module'
 import { NavComponent } from './nav/nav.component'
 import { StudentFormComponent } from './students/student-form/student-form.component'
 import { StudentListComponent } from './students/student-list/student-list.component'
-import { StudentsComponent } from './students/students.component'
+import { StudentsComponent } from './students/students.component';
+import { InstructorFormComponent } from './instructors/instructor-form/instructor-form.component';
+import { InstructorListComponent } from './instructors/instructor-list/instructor-list.component'
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { StudentsComponent } from './students/students.component'
     InstructorsComponent,
     StudentFormComponent,
     StudentListComponent,
+    InstructorFormComponent,
+    InstructorListComponent,
   ],
   imports: [
     AppRoutingModule,
