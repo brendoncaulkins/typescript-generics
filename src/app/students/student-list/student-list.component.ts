@@ -13,7 +13,6 @@ import { StudentService } from '../../services/student/student.service'
 })
 export class StudentListComponent implements AfterViewInit {
   @Output() editStudent = new EventEmitter<Student>()
-  @Output() deleteStudent = new EventEmitter<Student>()
 
   tableColumns: string[] = ['name', 'majors', 'actions']
 

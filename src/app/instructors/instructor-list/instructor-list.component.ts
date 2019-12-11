@@ -12,7 +12,6 @@ import { InstructorService } from '../../services/instructor/instructor.service'
 })
 export class InstructorListComponent implements AfterViewInit {
   @Output() editInstructor = new EventEmitter<Instructor>()
-  @Output() deleteInstructor = new EventEmitter<Instructor>()
 
   tableColumns: string[] = ['name', 'email', 'office', 'actions']
 
