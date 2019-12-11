@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core'
+import { Subject } from 'rxjs'
+
+import { Student } from '../models/student'
 
 @Component({
   selector: 'app-students',
@@ -6,6 +9,8 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./students.component.css'],
 })
 export class StudentsComponent implements OnInit {
+  editStudent$ = new Subject<Student>()
+
   constructor() {}
 
   ngOnInit() {}

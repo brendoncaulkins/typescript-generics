@@ -1,0 +1,36 @@
+<table mat-table [dataSource]="dataSource" matSort class="form-content">
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-flat-button color="primary" (click)="editStudent.emit(element)">Edit</button>
+      <button mat-button (click)="deleteStudent.emit(element)">Delete</button>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name
+    </th>
+    <td mat-cell *matCellDef="let student">{{student?.lastName}}, {{student?.firstName}}</td>
+  </ng-container>
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+    <td mat-cell *matCellDef="let student">{{student?.email}}</td>
+  </ng-container>
+  <ng-container matColumnDef="majors">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Majors</th>
+    <td mat-cell *matCellDef="let student">
+      <mat-chip-list [selectable]="false" aria-label="Student Majors List">
+        <mat-chip *ngFor="let major of student?.majors">{{ major }}</mat-chip>
+      </mat-chip-list>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="minors">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Minors</th>
+    <td mat-cell *matCellDef="let student">
+      <mat-chip-list [selectable]="false" aria-label="Student Minors List">
+        <mat-chip *ngFor="let minor of student?.minors">{{ minor }}</mat-chip>
+      </mat-chip-list>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
+</table>

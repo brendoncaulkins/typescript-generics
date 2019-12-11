@@ -1,0 +1,66 @@
+<form [formGroup]="formGroup">
+  <div class="form-content" fxLayoutAlign="center stretch" fxLayout="column">
+    <div fxLayoutGap="5px">
+      <mat-form-field fxFlex="50%">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" />
+        <mat-error *ngIf="showError('firstName', 'required')"
+          >This is required.</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field fxFlex="50%">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" />
+        <mat-error *ngIf="showError('lastName', 'required')">This is required.</mat-error>
+      </mat-form-field>
+    </div>
+    <mat-form-field>
+      <mat-label>Phone Number</mat-label>
+      <input matInput formControlName="phoneNumber" />
+      <mat-error *ngIf="showError('phoneNumber', 'required')"
+        >This is required.</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="showError('email', 'required')">This is required.</mat-error>
+      <mat-error *ngIf="showError('email', 'email')">Invalid email.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Majors</mat-label>
+      <mat-chip-list #majorsList>
+        <mat-chip
+          *ngFor="let major of formGroup.get('majors').value"
+          [removable]="true"
+          (removed)="remove(major, 'majors')"
+          >{{ major }}<mat-icon matChipRemove>cancel</mat-icon></mat-chip
+        >
+        <input
+          [matChipInputFor]="majorsList"
+          [matChipInputAddOnBlur]="true"
+          (matChipInputTokenEnd)="add($event, 'majors')"
+        />
+      </mat-chip-list>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Minors</mat-label>
+      <mat-chip-list #minorsList>
+        <mat-chip
+          *ngFor="let minor of formGroup.get('minors').value"
+          [removable]="true"
+          (removed)="remove(minor, 'minors')"
+          >{{ minor }}<mat-icon matChipRemove>cancel</mat-icon></mat-chip
+        >
+        <input
+          [matChipInputFor]="minorsList"
+          [matChipInputAddOnBlur]="true"
+          (matChipInputTokenEnd)="add($event, 'minors')"
+        />
+      </mat-chip-list>
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)="onSubmit()">
+      {{ this.student?.id ? 'Update' : 'Submit' }}
+    </button>
+  </div>
+</form>
