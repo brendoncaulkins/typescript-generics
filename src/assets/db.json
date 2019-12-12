@@ -1,18 +1,18 @@
 {
   "students": [
     {
-      "id": 1,
       "firstName": "Jeff",
       "lastName": "Winger",
       "phoneNumber": "234-567-8901",
       "email": "jeff.winger@greendale.edu",
       "majors": [
         "Psychology",
-        "Crimonology"
+        "Criminology"
       ],
       "minors": [
         "Spanish"
-      ]
+      ],
+      "id": 1
     },
     {
       "id": 2,
